@@ -151,6 +151,10 @@ body {
 }
 
 /* MAIN */
+
+.img_draw{
+    position: relative;
+}
 .img_general{
     width: 1200px;
     height: 400px;
@@ -176,6 +180,9 @@ h1{
 .black{
     background: rgba(0, 0, 0, 0.5)
 }
+
+
+
 /* Gallary */
 .galery_block {
     height: 300px;
@@ -405,12 +412,15 @@ h1{
     flex-flow: column;
     align-items: center;
     gap: 90px;
-    transform: translateY(69%);
-    transition: all 1s ease-in;
+    transform: translateY(70%);
+
+
 }
 
+
 .hover_me_button{
-    margin-top: 20px;
+    padding: 20px 0;
+    width: 100%;
     background: none;
     background-image: linear-gradient(to right, #0a7c5a, #4ef5c3, #0a7c5a );
     border: none;
@@ -421,7 +431,29 @@ h1{
     font-size: 1.5rem;
     color: white;
     cursor: pointer;
+    animation: twist .5s ease infinite;
 }
+
+
+@keyframes twist {
+    0%{
+        transform: rotate(-3deg) ;
+    }
+    25%{
+        transform: rotate(3deg)
+    }
+    50%{
+        transform: rotate(-3deg)
+    }
+    75%{
+        transform: rotate(3deg)
+    }
+    
+    100%{
+        transform: rotate(-3deg) ;
+    }
+}
+
 
 .socias_media_group{
     width: 150px;
@@ -441,9 +473,22 @@ h1{
 }
 .socias_media_group svg{
     transform: rotate(-45deg);
-}
-.hover_me_general_box:hover{ 
-    transform: translateY(0%);
-    transform: translateX(-120%);
+    transition: all 1s ease;
 }
 
+.hover_me_general_box:hover .hover_me_button{
+    animation: none;
+}
+
+.hover_me_general_box:hover{ 
+    transform: translateY(0%);
+    transform: translateX(0%);
+    transition: all 1s ease-in;
+
+}
+
+
+.socias_media_group a:hover svg{
+    fill: rgb(45, 168, 250);
+    transform: rotate(2turn);
+}
